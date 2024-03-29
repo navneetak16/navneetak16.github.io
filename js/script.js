@@ -2,10 +2,7 @@
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
-btn.onclick = () => {
-    alert("Message Sent Successful ");
-    
-};
+ 
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
