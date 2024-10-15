@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Response</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+</head>
+<body>
+    <h1>Game Response Simulation</h1>
+    <button id="sendRequest">Send Request</button>
+    <pre id="response"></pre>
+
+    <script>
+        document.getElementById('sendRequest').onclick = function() {
+            const game = "Free";
+            const user_key = "dn83dbjd83bBsh";
+            const serial = "hshsi-usubehduu-Bsvu73";
+            const secret = "Vm8Lk7Uj2JmsjCPVPVjrLa7zgfx3uz9y";
+
+            // Calculate the MD5 token
+            const token = CryptoJS.MD5(`${game}-${user_key}-${serial}-${secret}`).toString();
+
+            // Create the response JSON
+            const responseJson = {
+                status: true,
+                data: {
+                    modname: "LIVIS",
+                    mod_status: "",
+                    credit: "JAY SHREE RAM",
+                    token: token,
+                    exdate: "2024-06-24 18:44:19",
+                    EXP: "2034-06-24 18:44:19",
+                    ESP: "on",
+                    ITEMS: "on",
+                    AIM: "on",
+                    BULLETTRACK: "on",
+                    FLOATING: "on",
+                    MEMORY: "on",
+                    SETTING: "on",
+                    ANTICRACK: "on",
+                    rng: 1919213266
+                }
+            };
+
+            // Display the response
+            document.getElementById('response').textContent = JSON.stringify(responseJson, null, 2);
+        };
+    </script>
+</body>
+</html>
